@@ -23,8 +23,8 @@ class Users::ConfirmationsController < Devise::ConfirmationsController
   #   super(resource_name)
   # end
 
-  # The path used after confirmation.
-  # def after_confirmation_path_for(resource_name, resource)
-  #   super(resource_name, resource)
-  # end
+  private
+  def after_confirmation_path_for(resource_name, resource)
+    new_user_session_path
+  end
 end
