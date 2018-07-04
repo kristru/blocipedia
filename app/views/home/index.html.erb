@@ -19,7 +19,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-              <%= link_to 'Home', home_index_path, class:'nav-link'%>
+              <%= link_to 'Home', root_path, class:'nav-link'%>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Link</a>
@@ -40,15 +40,72 @@
         </div>
       </nav>
 
-      <div class="jumbotron">
-        <% if user_signed_in? %>
-          <h1><%= "Welcome #{current_user.username}!" %></h1>
-          <% else %>
-          <h1><%= "Welcome to Blocipedia" %></h1>
-          <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-          <%= link_to "Sign Up", new_user_registration_path, :class => 'btn btn-primary'  %>
-        <% end %>
-      </div>
+      <div class="jumbotron jumbotron-billboard">
+        <div class="img"></div>
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-12">
+                <%= image_tag('https://d30y9cdsu7xlg0.cloudfront.net/png/1182189-200.png', size:'45x45', :alt => "logo" ) %>
+                    <% if user_signed_in? %>
+                      <h1><%= "Welcome #{current_user.username}!" %></h1>
+                      <a href="#" class="btn btn-primary">Create a new wiki</a>
+                      <% else %>
+                      <h1><%= "Welcome to Blocipedia" %></h1>
+                      <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+                      <%= link_to "Sign Up", new_user_registration_path, :class => 'btn btn-primary'  %>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+<!-- BEGIN WIKIS ////////////////-->
+      <div class="row">
+        <div class="col-lg-4">
+            <div class="card">
+              <div class="card-header">
+                Wiki Topic
+              </div>
+              <img class="card-img-top" src="https://placeimg.com/400/200/any/grayscale" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">Wiki title</h5>
+                <small><p>Wiki Creator</p></small>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <a href="#" class="btn btn-primary">Collaborate</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+              <div class="card">
+                <div class="card-header">
+                  Wiki Topic
+                </div>
+                <img class="card-img-top" src="https://placeimg.com/400/200/any/grayscale" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">Wiki title</h5>
+                  <small><p>Wiki Creator | created at ...</p></small>
+                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                  <a href="#" class="btn btn-primary">Collaborate</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="card">
+                  <div class="card-header">
+                    Wiki Topic
+                  </div>
+                  <img class="card-img-top" src="https://placeimg.com/400/200/any/grayscale" alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title">Wiki title</h5>
+                    <small><p>Wiki Creator</p></small>
+                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <a href="#" class="btn btn-primary">Collaborate</a>
+                  </div>
+                </div>
+              </div>
+        </div>
 
 
   </body>
