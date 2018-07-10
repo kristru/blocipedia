@@ -5,7 +5,4 @@ class Wiki < ApplicationRecord
   validates :body, length: {minimum: 20}, presence: true
   validates :user, presence: true
 
-  def create_wiki
-    Wike.create(title: title, body: body)
-  end
 end
