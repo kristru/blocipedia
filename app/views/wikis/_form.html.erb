@@ -1,5 +1,5 @@
 <form>
-    <%= form_for wiki do |f| %>
+    <%= form_for @wiki do |f| %>
     <% if @wiki.errors.any? %>
        <div class="alert alert-danger">
          <h4><%= pluralize(@wiki.errors.count, "error") %></h4>
