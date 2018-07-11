@@ -20,7 +20,7 @@ class WikisController < ApplicationController
 
     if @wiki.save
       flash[:notice] = "Woo hoo! A new Wiki."
-      redirect_to wiki_path(@wiki)
+      redirect_to @wiki
     else
       flash.now[:alert] = "Whoops. There was an error saving your Wiki. Please try again."
       render :new
@@ -33,7 +33,7 @@ class WikisController < ApplicationController
 
   def update
     @wiki = Wiki.find(params[:id])
-    @wiki = assign_attributes(wiki_params)
+    @wiki.assign_attributes(wiki_params)
 
     if @wiki.save
       flash[:notice] = "Wiki was updated."
@@ -44,12 +44,12 @@ class WikisController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
     @wiki = Wiki.find(params[:id])
 
     if @wiki.delete
       flash[:notice] = "Bye Bye Wiki."
-      redirect_to Wiki.all
+      redirect_to action: :index
     else
       flash.now[:alert] = "Stubborn little bugger. Please try again."
       render :show
