@@ -48,7 +48,7 @@
                 <%= image_tag('https://d30y9cdsu7xlg0.cloudfront.net/png/1182189-200.png', size:'45x45', :alt => "logo" ) %>
                     <% if user_signed_in? %>
                       <h1><%= "Welcome #{current_user.username}!" %></h1>
-                      <a href="#" class="btn btn-primary">Create a new wiki</a>
+                      <%= link_to "Create a new wiki", new_wiki_path, :class => 'btn btn-primary' %>
                       <% else %>
                       <h1><%= "Welcome to Blocipedia" %></h1>
                       <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
