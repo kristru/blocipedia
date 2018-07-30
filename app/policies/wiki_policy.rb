@@ -7,6 +7,10 @@ class PostPolicy < ApplicationPolicy
   end
 
   def update?
-    user.admin? or not wiki.published?
+    user.present?
+  end
+
+  def admin_list?
+    user.admin?
   end
 end

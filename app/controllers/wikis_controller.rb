@@ -63,4 +63,12 @@ class WikisController < ApplicationController
     params.require(:wiki).permit(:title, :body)
   end
 
+  def authorize_user
+    wiki = Wiki.find(params[:id])
+    unless current_user == wiki.user || current_user.standard?
+      flash[:alert] = "You must be a member to do that."
+      redirect_to [wiki]
+    end
+  end
+
 end
