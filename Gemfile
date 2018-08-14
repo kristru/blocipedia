@@ -1,25 +1,23 @@
 source 'https://rubygems.org'
 
-git_source(:github) do |repo_name|
-  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
-  "https://github.com/#{repo_name}.git"
-end
+ git_source(:github) do |repo_name|
+   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
+   "https://github.com/#{repo_name}.git"
+ end
 
+ # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+ gem 'rails', '~> 5.1.2'
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.1.6'
-
-gem 'devise'
-
-group :production do
+ group :production do
    # Use pg as the production database for Active Record
    gem 'pg'
+   gem 'rails_12factor'
  end
 
  group :development do
    # Use sqlite3 as the development database for Active Record
    gem 'sqlite3'
-   gem 'web-console', '~> 3.5.1'
+   gem 'web-console', '~> 2.0'
  end
 
  # Use Puma as the app server
@@ -28,6 +26,24 @@ group :production do
  gem 'sass-rails', '~> 5.0'
  # Use Uglifier as compressor for JavaScript assets
  gem 'uglifier', '>= 1.3.0'
+
+ #Bootstrap
+ gem 'bootstrap', '~> 4.0.0'
+
+ #Pundit
+ gem "pundit"
+
+ #Faker
+ gem 'faker'
+
+ #Markdown
+ gem 'redcarpet'
+
+ #Stripe
+ gem 'stripe'
+
+ #Figaro for config variables
+ gem 'figaro', '1.0'
 
  # Use jquery as the JavaScript library
  gem 'jquery-rails'
@@ -38,9 +54,8 @@ group :production do
 
  gem 'thor', '0.20.0'
 
- gem 'pundit'
+ gem 'devise'
 
  group :development do
    gem 'listen', '~> 3.0.5'
  end
-gem 'bootstrap', '~> 4.1.1'
